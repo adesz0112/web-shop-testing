@@ -4,21 +4,21 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import pages.HomePage;
 import pages.RegistrationPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RegistrationStep {
+public class RegistrationStep  {
 
     private WebDriver driver;
     private RegistrationPage registrationPage;
+    private HomePage homePage;
 
     public RegistrationStep() {
         this.driver = Hook.getDriver();
         this.registrationPage = new RegistrationPage(driver);
-
-
-
+        this.homePage = new HomePage(driver);
     }
 
     @Given("the user on the {string} page")
@@ -54,5 +54,7 @@ public class RegistrationStep {
     @Then("user can register")
     public void user_can_register() {
         assertTrue(registrationPage.isAccountCreatedMessageDisplayed());
+        driver.get("https://automationexercise.com/");
+        homePage.clickDeleteAccount();
     }
 }

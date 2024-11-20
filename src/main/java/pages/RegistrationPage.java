@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationPage extends BasePage {
+
     @FindBy(css = "input[data-qa='signup-name']")
     private WebElement nameInput;
     @FindBy(css = "input[data-qa='signup-email']")
