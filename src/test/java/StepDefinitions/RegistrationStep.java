@@ -51,8 +51,44 @@ public class RegistrationStep  {
         registrationPage.enterMobileNumber("0053555");
         registrationPage.clickCreateAccountButton();
     }
-    @Then("user can register")
-    public void user_can_register() {
+
+    @When("the user enters {string} and chooses {string}")
+    public void the_user_enters_and_chooses(String password, String gender) {
+        registrationPage.enterPassword(password);
+        registrationPage.chooseGender1();
+    }
+
+    @When("the user selects {string}, {string}, and {string}")
+    public void the_user_selects_and(String day, String month, String year) {
+       registrationPage.selectDayByValue(day);
+       registrationPage.selectMonthByValue(month);
+       registrationPage.selectYearByValue(year);
+    }
+
+    @When("the user enters {string}, {string}, {string}, and {string}")
+    public void the_user_enters_and(String firstName, String lastName, String address1, String address2) {
+        registrationPage.enterFirstName(firstName);
+        registrationPage.enterLastName(lastName);
+        registrationPage.enterAddress1(address1);
+        registrationPage.enterAddress2(address2);
+    }
+
+    @When("the user selects  {string}, and enters {string}, {string}")
+    public void the_user_selects_and_enters(String country, String state, String city) {
+       registrationPage.selectCountryByValue(country);
+       registrationPage.enterState(state);
+       registrationPage.enterCity(city);
+    }
+
+    @When("the user enters {string} and {string} and click on submit button")
+    public void the_user_enters_and_and_click_on_submit_button(String zipcode, String mobileNumber) {
+        registrationPage.enterZipcode(zipcode);
+        registrationPage.enterMobileNumber(mobileNumber);
+    }
+
+
+    @Then("user is registered")
+    public void user_is_registered() {
         assertTrue(registrationPage.isAccountCreatedMessageDisplayed());
         driver.get("https://automationexercise.com/");
         homePage.clickDeleteAccount();

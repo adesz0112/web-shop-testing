@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,14 +16,14 @@ public class Hook {
         }
     }
 
-  /*  @After
+   @After
     public void tearDown() {
         if (driver != null) {
             driver.quit();
             driver = null;
         }
     }
-*/
+
     public static WebDriver getDriver() {
         return driver;
     }
