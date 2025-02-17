@@ -53,37 +53,41 @@ public class RegistrationStep  {
     }
 
     @When("the user enters {string} and chooses {string}")
-    public void the_user_enters_and_chooses(String password, String gender) {
+    public void the_user_enters_and_chooses(String password, String gender)  {
         registrationPage.enterPassword(password);
         registrationPage.chooseGender1();
     }
 
     @When("the user selects {string}, {string}, and {string}")
-    public void the_user_selects_and(String day, String month, String year) {
+    public void the_user_selects_and(String day, String month, String year) throws InterruptedException {
        registrationPage.selectDayByValue(day);
        registrationPage.selectMonthByValue(month);
        registrationPage.selectYearByValue(year);
+       wait(5000);
     }
 
     @When("the user enters {string}, {string}, {string}, and {string}")
-    public void the_user_enters_and(String firstName, String lastName, String address1, String address2) {
+    public void the_user_enters_and(String firstName, String lastName, String address1, String address2) throws InterruptedException {
         registrationPage.enterFirstName(firstName);
         registrationPage.enterLastName(lastName);
         registrationPage.enterAddress1(address1);
         registrationPage.enterAddress2(address2);
+        wait(5000);
     }
 
     @When("the user selects  {string}, and enters {string}, {string}")
-    public void the_user_selects_and_enters(String country, String state, String city) {
+    public void the_user_selects_and_enters(String country, String state, String city) throws InterruptedException {
        registrationPage.selectCountryByValue(country);
        registrationPage.enterState(state);
        registrationPage.enterCity(city);
+        wait(5000);
     }
 
     @When("the user enters {string} and {string} and click on submit button")
-    public void the_user_enters_and_and_click_on_submit_button(String zipcode, String mobileNumber) {
+    public void the_user_enters_and_and_click_on_submit_button(String zipcode, String mobileNumber) throws InterruptedException {
         registrationPage.enterZipcode(zipcode);
         registrationPage.enterMobileNumber(mobileNumber);
+        wait(5000);
     }
 
 
@@ -91,6 +95,6 @@ public class RegistrationStep  {
     public void user_is_registered() {
         assertTrue(registrationPage.isAccountCreatedMessageDisplayed());
         driver.get("https://automationexercise.com/");
-        homePage.clickDeleteAccount();
+       // homePage.clickDeleteAccount();
     }
 }

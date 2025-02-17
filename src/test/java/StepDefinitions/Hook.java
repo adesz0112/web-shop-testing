@@ -16,14 +16,14 @@ public class Hook {
         }
     }
 
-   @After
+   /*@After
     public void tearDown() {
         if (driver != null) {
             driver.quit();
             driver = null;
         }
     }
-
+*/
     public static WebDriver getDriver() {
         return driver;
     }
