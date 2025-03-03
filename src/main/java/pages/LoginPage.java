@@ -15,6 +15,7 @@ public class LoginPage extends BasePage{
     private WebElement loginPassword;
     @FindBy(xpath = "//p[contains(@class, 'fc-button-label') and text()='Beleegyezés']")
     private WebElement consentButton;
+    private final String loginPageURL = "https://automationexercise.com/login";
 
 
     public LoginPage(WebDriver driver) {
@@ -35,5 +36,9 @@ public class LoginPage extends BasePage{
 
     public void acceptConsent() {
         wait.until(ExpectedConditions.elementToBeClickable(consentButton)).click();
+    }
+
+    public String getLoginPageURL() {
+        return loginPageURL;
     }
 }
