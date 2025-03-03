@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.LoginPage;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginStep {
@@ -22,7 +21,7 @@ public class LoginStep {
         this.homePage = new HomePage(driver);
     }
     @Given("The user is on the {string} page")
-    public void the_user_is_on_the_page(String url) throws InterruptedException {
+    public void the_user_is_on_the_page(String url) {
         driver.get(url);
         loginPage.acceptConsent();
     }
