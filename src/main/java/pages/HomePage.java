@@ -13,6 +13,16 @@ public class HomePage extends BasePage {
     private WebElement logout;
     @FindBy(xpath = "//p[contains(text(), 'Your email or password is incorrect!')]")
     private WebElement errorMessage;
+    @FindBy(xpath = "//a[contains(@href, '/products')]")
+    private WebElement products;
+    @FindBy(xpath = "//a[contains(@href, '/test_cases')]")
+    private WebElement testCasePageButton;
+    @FindBy(xpath = "//a[contains(@href, '/view_cart')]")
+    private WebElement cartPageLink;
+    private final String productsURL = "https://automationexercise.com/products";
+    private final String testCasesURL = "https://automationexercise.com/test_cases";
+    private final String viewCartURL = "https://automationexercise.com/view_cart";
+
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -26,6 +36,18 @@ public class HomePage extends BasePage {
         logout.click();
     }
 
+    public void clickProductsButton() {
+        products.click();
+    }
+
+    public void clickTestCasesButton() {
+        testCasePageButton.click();
+    }
+
+    public void clickCartButton() {
+        cartPageLink.click();
+    }
+
     public boolean logoutButtonIsVisible() {
         return logout.isDisplayed();
     }
@@ -36,5 +58,17 @@ public class HomePage extends BasePage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public String getProductsURL() {
+        return productsURL;
+    }
+
+    public String getTestCasesURL() {
+        return testCasesURL;
+    }
+
+    public String getViewCartURL() {
+        return viewCartURL;
     }
 }
