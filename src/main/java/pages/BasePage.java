@@ -20,7 +20,6 @@ public abstract class BasePage {
     }
 
     protected WebElement wait(WebElement webElement) {
-
         wait.until(ExpectedConditions.visibilityOf(webElement));
         return webElement;
     }
